@@ -1,20 +1,20 @@
-.grid-container{
+.grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: minmax(30%, auto);
     grid-gap: 10px;
 }
 
-.grid-container3{
+.grid-container3 {
     display: grid;
-    grid-template-columns: 2fr 3fr ;
+    grid-template-columns: 2fr 3fr;
     gap: 1rem;
     place-content: center;
     background-color: rgb(32, 32, 32);
     padding: 1rem;
 }
 
-.grid-item-navg{
+.grid-item-navg {
     padding: 1rem;
     display: flex;
     flex-direction: row;
@@ -22,7 +22,7 @@
     /* border: 2px solid black; */
     align-items: center;
     gap: 1rem;
-    
+
 }
 
 /* .headertext{
@@ -30,59 +30,82 @@
     margin: 0 auto;
 } */
 
-.dp{
+.dp {
     border-radius: 50%;
 }
 
 
-img{
+/* img{
     transition: transform .25s;
 
 }
 img:hover{
     transform:scale(1.25);
-}
+} */
 
-a,a:visited{
+a,
+a:visited {
     font-size: 2vw;
     font-family: 'Clash Display', sans-serif;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    
+
 }
-a:hover{
+
+a:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
 
-a:active{
+a:active {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
 
-h2{
+h2 {
     font-family: 'General Sans', sans-serif;
     font-size: 30;
 }
 
-h1{
+h1 {
     font-family: 'Clash Display', sans-serif;
 }
-body{
+
+body {
     /* border: 2px solid black; */
     margin: 0;
 }
 
-main{
+main {
     margin: 5%;
 }
 
-.nav-bar{
+.nav-bar {
     display: none;
 }
 
-span{
+span {
     white-space: wrap;
+}
+
+
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s ease;
+    background-color: #9f9f9f;
+}
+
+.container:hover .overlay {
+    opacity: 0.5;
 }
 
 
@@ -94,19 +117,22 @@ span{
 
 /* For mobile phones: */
 @media screen and (max-width: 480px) {
-    .grid-container{
+    .grid-container {
         grid-template-columns: 1fr;
     }
-    .nav-bar{
+
+    .nav-bar {
         display: block;
         position: absolute;
         right: 100;
         width: 100%;
     }
-    .grid-item-navg{
+
+    .grid-item-navg {
         display: none;
     }
-    img:hover{
+
+    img:hover {
         transform: none;
     }
 
