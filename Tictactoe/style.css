@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --color: #e8e3e3;
+  --grey-color: #888888;
+  --dark-grey-color: #676767;
+  --background-color: #151515;
+  --gameboard-background-color: #191919;
+  --gameboard-button-background-color: #1f1f1f;
+  --gameboard-button-background-color-hover: #222222;
+  --gameboard-button-text-color: #e8e3e3;
+  --win-highlight-background-color: #1f2a1f;
+  --start-game-button-background-color: #1f1f1f;
+  --player-name-button-background-color: #252525;
+  --player-name-button-background-color-hover: #1f1f1f;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: 'Poppins', sans-serif;
+  color: var(--color);
+}
+
+/* Header */
+
+.start-page header {
+  font-size: 3.8rem;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: 2px solid whitesmoke;
+}
+
+.main-page header {
+  font-size: 3.8rem;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: 2px solid whitesmoke;
+  margin-top: 1rem;
+}
+
+.second-page header{
+  font-size: 3.8rem;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: 2px solid whitesmoke;
+  margin-top: 1rem;
+}
+
+
+/* Start Page */
+
+.start-page .buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  color: var(--color);
+  background-color: var(--background-color);
+  color: var(--color);
+  z-index: 2;
+  gap: 1rem;
+}
+
+.start-page.hidden,.main-page.hidden {
+  display: none;
+}
+
+.second-page.hidden{
+  display: none;
+}
+
+.start-page > p {
+  font-size: 1.2rem;
+}
+
+
+.start-game-button,
+.restart-game-button,
+.start-game-button-multiple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: unset;
+  /* width: 200px;
+  height: 54px; */
+  padding: 1rem 2rem;
+  color: var(--color);
+  background-color: var(--start-game-button-background-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.start-game-button:hover,
+.restart-game-button:hover,
+.start-game-button-multiple:hover {
+  filter: brightness(1.2);
+  transform: scale(1.06, 1.06);
+}
+
+.start-game-button:active,
+.restart-game-button:active,
+.start-game-button-multiple:active {
+  filter: brightness(0.9);
+}
+
+/* Main */
+
+.main-page {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main{
+  width: 100%;
+}
+
+/* Second Page */
+
+.second-page {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 2rem; */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.computer-name{
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: var(--player-name-button-background-color);
+  color: var(--color);
+  max-width: 150px;
+  padding: 5px 16px;
+  border-radius: 8px;
+}
+
+.second-page{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.second-page main .whole{
+  display: grid;
+  grid-template-columns: repeat(3, 136px);
+  grid-template-rows: repeat(3, 136px);
+  gap: 18px;
+  justify-content: center;
+  background-color: var(--gameboard-background-color);
+  border-radius: 21px;
+  padding: 18px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.cell{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  font-family: Poppins;
+  cursor: pointer;
+  border: none;
+  border-radius: 24px;
+  padding: 0;
+  background-color: var(--gameboard-button-background-color);
+  color: var(--gameboard-button-text-color);
+  transition-duration: 0.3s;
+  user-select: none;
+
+}
+
+.cell:hover {
+  background-color: var(--gameboard-button-background-color-hover);
+  transform: scale(1.06, 1.06);
+}
+
+/* Player Cards */
+
+.player-cards {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.versus {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 8px;
+  padding: 14px 28px;
+  text-transform: capitalize;
+  background-color: var(--gameboard-background-color);
+  border-radius: 18px;
+}
+
+.player-card p {
+  margin: 0;
+}
+
+.player-card > p:first-child {
+  font-size: 0.9rem;
+}
+
+.player-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: var(--player-name-button-background-color);
+  color: var(--color);
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+  cursor: pointer;
+  padding: 5px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.player-name:hover {
+  filter: brightness(1.1);
+}
+
+/* Gameboard */
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 136px);
+  grid-template-rows: repeat(3, 136px);
+  gap: 18px;
+  justify-content: center;
+  background-color: var(--gameboard-background-color);
+  border-radius: 21px;
+  padding: 18px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* Gameboard Buttons */
+
+.board-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 24px;
+  padding: 0;
+  background-color: var(--gameboard-button-background-color);
+  color: var(--gameboard-button-text-color);
+  transition-duration: 0.3s;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.board-button:enabled:hover {
+  background-color: var(--gameboard-button-background-color-hover);
+  transform: scale(1.06, 1.06);
+}
+
+.win-highlight {
+  background-color: var(--win-highlight-background-color);
+  scale: 1.06;
+}
+
+
+/* Winner Modal */
+
+
+.winner-modal {
+  font-weight: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 18px;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: visibility 0s linear 0.25s, opacity 0.15s 0s;
+  z-index: 2;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s linear 0s, opacity 0.55s 0.55s;
+}
+
+.winner-modal > p {
+  font-size: 3rem;
+  text-align: center;
+}
+
+
+/* Footer */
+
+footer {
+  padding: 1rem;
+  border-top: 1px solid white;
+  text-align: center;
+}
+
+
+
+.display-result{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+}
+.display-result > p {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.display-result.hidden{
+  display: none;
+}
+
+
+@media screen and (max-width:576px) {
+  .game-board{
+  display: grid;
+  grid-template-columns: repeat(3, 82px);
+  grid-template-rows: repeat(3, 82px);
+  gap: 12px;
+  justify-content: center;
+  background-color: var(--gameboard-background-color);
+  border-radius: 18px;
+  padding: 12px;
+  width: fit-content;
+  margin: 0 auto;
+  }
+  .second-page .gameboard .whole{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 12px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+  }
+  .cell{
+    width: 82px;
+    height: 82px;
+    font-size: 3rem;
+  }
+  .board-button {
+    font-size: 3rem;
+  }
+  
+  .main-page header {
+    font-size: 2rem;
+  }
+  .second-page header {
+    font-size: 2rem;
+  }
+  
+  .player-card > p:first-child {
+    font-size: 12px;
+  }
+  .second-page .gameboard .player-cards .player-card .computer-name {
+    font-size: 12px;
+    font-weight: bolder !important;
+  }
+  
+  .player-name {
+    font-size: 16px;
+  }
+  
+  .start-game-button,
+  .start-game-button-multiple {
+    font-size: 12px;
+    padding: 1rem;
+  }
+  
+  .player-cards {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    height: 100%;
+  }
+}

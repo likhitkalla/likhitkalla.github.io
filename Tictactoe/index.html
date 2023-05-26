@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="images/favicon.png" />
+  <link href="style.css" rel="stylesheet" />
+  <script src="script.js" defer></script>
+  <script src="ai.js" defer></script>
+</head>
+
+<body>
+  <div class="start-page">
+    <header>tic tac toe</header>
+    <div class="buttons">
+      <button class="start-game-button">
+        <img src="images/icons/play.svg" alt="" />
+        <p>Multi Player</p>
+      </button>
+      <button class="start-game-button-multiple">
+        <img src="images/icons/play.svg" alt="" />
+        <p>Single player</p>
+      </button>
+    </div>
+  </div>
+  <div class="main-page hidden">
+    <header>tic tac toe</header>
+    <main class="hidden">
+      <div class="winner-modal">
+        <p></p>
+        <button class="restart-game-button">
+          <img src="images/icons/restart.svg" alt="" />
+          <p>restart</p>
+        </button>
+      </div>
+      <div class="player-cards">
+        <div class="player-card player1">
+          <p>player 1 (X)</p>
+          <button class="player-name" id="player1-name">Human 1</button>
+        </div>
+        <p class="versus">vs</p>
+        <div class="player-card player2">
+          <p>player 2 (O)</p>
+          <button class="player-name" id="player2-name">Human 2</button>
+        </div>
+      </div>
+      <div class="game-board"></div>
+    </main>
+    <footer>
+      <div>&copy; Yashwanth Kiran 2023</div>
+    </footer>
+  </div>
+  <div class="second-page hidden">
+    <header>tic tac toe</header>
+    <main class="gameboard">
+      <div class="display-result hidden">
+        <p></p>
+        <button class="restart-game-button" id="reset">
+          <img src="images/icons/restart.svg" alt="" />
+          <p id="restart">restart</p>
+        </button>
+      </div>
+      <div class="player-cards">
+        <div class="player-card player1" id="human">
+          <p>player 1 (X)</p>
+          <button class="player-name" id="name">Human 1</button>
+        </div>
+        <p class="versus">vs</p>
+        <div class="player-card player2" id="computer">
+          <p>player 2 (O)</p>
+          <p class="computer-name">Computer</p>
+        </div>
+      </div>
+      <div class="whole">
+        <div class="cell" id="0"></div>
+        <div class="cell" id="1"></div>
+        <div class="cell" id="2"></div>
+        <div class="cell" id="3"></div>
+        <div class="cell" id="4"></div>
+        <div class="cell" id="5"></div>
+        <div class="cell" id="6"></div>
+        <div class="cell" id="7"></div>
+        <div class="cell" id="8"></div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
